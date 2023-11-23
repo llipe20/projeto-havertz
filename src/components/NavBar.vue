@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col justify-center items-center w-full h-auto p-2 lg:gap-2 bg-black text-white">
+    <div class="flex flex-col justify-center items-center w-full h-auto p-2 lg:gap-2 bg-palete-400 text-white">
         <!-- NAV SUPERIOR -->
-        <nav class="flex justify-between items-center w-full lg:w-5/6 text-sm font-light">
+        <nav class="flex justify-between items-center w-full lg:w-5/6 text-sm pt-1 pb-1 font-light">
             <!-- BLOCO 1 -redes -->
             <div class="hidden lg:flex justify-center items-center gap-2">
                 <a href="#" class="no-underline hover:scale-105">Instagram</a>
@@ -42,7 +42,7 @@
             </div>
         </nav>
         <!-- NAV INTERMEDIÁRIA -->
-        <nav class="flex justify-between lg:justify-evenly items-center w-full lg:w-5/6 pt-2 lg:p-2">
+        <nav class="flex justify-evenly lg:justify-between items-center w-full lg:w-5/6 pt-2 lg:p-2">
             <!-- BOX DE LOGO -->
             <div class="flex justify-center items-center gap-1 lg:gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:w-10 lg:h-10 w-6 h-6">
@@ -54,9 +54,9 @@
             </div>
             <!-- BARRA DE PESQUEISA -->
             <div class="flex justify-between items-center gap-1 w-3/6 lg:w-3/5 bg-white pr-1">
-                <input type="text" class="w-5/6 h-10 bg-white text-black border-0 outline-0 pl-4" placeholder="Pesquisar">
-                <button class="flex justify-center items-center w-8 h-8 bg-black text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <input type="text" class="w-5/6 h-8 lg:h-10 bg-white text-black border-0 outline-0 pl-4" placeholder="Pesquisar">
+                <button class="flex justify-center items-center w-6 lg:w-8 h-6 lg:h-8 bg-black text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 lg:w-6 h-4 lg:h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                 </button>
@@ -72,7 +72,7 @@
             </div>
         </nav>
         <!-- NAV INFERIOR -->
-        <nav class="flex flex-wrap justify-center lg:justify-evenly lg:justify-evenly items-center gap-4 lg:gap-0 gap-y-2 lg:pt-0 w-full lg:w-5/6 pt-4 pb-2 text-sm">
+        <nav class="flex flex-wrap justify-center lg:justify-evenly lg:justify-evenly items-center gap-4 lg:gap-0 gap-y-2 lg:pt-0 w-full lg:w-5/6 pt-4 pb-2 lg:text-sm text-xs">
             <a href="#" class="no-underline hover:scale-105 hover:underline">
                 Moda masculina</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
