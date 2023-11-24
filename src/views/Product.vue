@@ -1,17 +1,12 @@
 <template>
   <div class="about">
-    <CardView />
+    <span>PRODuTO AQUI</span>
   </div>
 </template>
 
 <script>
-import CardView from '../components/Card.vue'
 
 export default {
     name : 'ProductView',
-
-    components : {
-        CardView
-    }
 }
 </script>
