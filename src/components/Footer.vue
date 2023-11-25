@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col justify-center items-center gap-10 w-full h-auto bg-palete-400 pt-10">
-        <div class="flex flex-wrap gap-y-4 lg:gap-0 justify-between lg:justify-evenly items-start w-5/6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-4 justify-center items-start w-5/6 lg:w-4/6">
             <!-- link de footer box 1 - conheça-nos -->
-            <div class="flex flex-col justify-center items-start gap-1 w-40 md:w-auto text-base text-white">
+            <div class="flex flex-col justify-center items-start gap-1 text-base text-white pl-4">
                 <span class="font-bold">
                     Conheça-nos
                 </span>
@@ -16,7 +16,7 @@
                     Acessibilidade</a>
             </div> 
             <!-- link de footer box 2 - vendas -->
-            <div class="flex flex-col justify-center items-start gap-1 w-40 md:w-auto text-base text-white">
+            <div class="flex flex-col justify-center items-start gap-1 text-base text-white pl-4">
                 <span class="font-bold">
                     Vendas
                 </span>
@@ -30,7 +30,7 @@
                     Anuncie</a>
             </div> 
              <!-- link de footer box 3 - pagamentos -->
-            <div class="flex flex-col justify-center items-start gap-1 w-40 md:w-auto text-base text-white">
+            <div class="flex flex-col justify-center items-start gap-1 text-base text-white pl-4">
                 <span class="font-bold">
                     Pagamentos
                 </span>
@@ -42,7 +42,7 @@
                     Cartão de crédito</a>
             </div>
             <!-- link de footer box 4 - ajuda -->
-            <div class="flex flex-col justify-center items-start gap-1 w-40 md:w-auto text-base text-white">
+            <div class="flex flex-col justify-center items-start gap-1 text-base text-white pl-4">
                 <span class="font-bold">
                     Ajuda
                 </span>

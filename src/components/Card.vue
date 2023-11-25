@@ -2,8 +2,8 @@
     <!-- CARD PARA EXIBIR PRODUTO -->
     <div 
         v-if="value === 'product'"
-        class="flex flex-col justify-between itmes-center w-44 lg:w-52 h-72 lg:h-80 bg-white shadow box-border hover:border border-palete-400">
-        <div class="w-full h-2/3 bg-palete-500">
+        class="flex flex-col justify-between itmes-center w-auto h-72 lg:h-80 bg-white shadow box-border hover:border border-palete-400">
+        <div class="w-full h-2/3">
             <!-- imagem do produto aqui! -->
         </div>
         <div class="flex flex-col justify-around items-start p-2 w-full h-1/3">
@@ -55,9 +55,9 @@
     <!-- CARD PARA MONTAR AS CATEGORIAS --> 
     <div
         v-if="value === 'category'" 
-        class="flex flex-col justify-center items-center gap-2 w-32 h-36 bg-white text-black border border-gray-200 hover:border-palete-400 p-2 box-border"
+        class="flex flex-col justify-center items-center gap-2 h-36 bg-white text-black border border-gray-200 hover:border-palete-400 p-2 box-border"
     >
-        <div class="h-16 w-16 rounded-full bg-black"></div>
+        <div class="w-10 h-10 lg:h-16 lg:w-16 rounded-full border border-black"></div>
         <h2 class="text-base text-center">Moda Feminina</h2>
     </div>
 </template>
