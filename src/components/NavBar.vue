@@ -76,23 +76,25 @@
         <!-- NAV INFERIOR -->
         <nav class="flex flex-wrap justify-center lg:justify-evenly lg:justify-evenly items-center gap-4 lg:gap-0 gap-y-2 lg:pt-0 w-full lg:w-5/6 pt-4 pb-2 lg:text-sm text-xs">
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Moda masculina</a>
+                Mangás</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Moda feminina</a>
+                Quadrinhos</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Moda infantil</a>
+                Revistas</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Eletrodomésticos</a>
+                Marcadores</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Moveis</a>
+                E-book</a>
              <a href="#" class="no-underline hover:scale-105 hover:underline">
                 Acessorios</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                Celulares</a>
+                Cadernos</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
-                TV</a>
+                Poster</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
                 Livros</a>
+            <a href="#" class="no-underline hover:scale-105 hover:underline">
+                Bíblias</a>
             <a href="#" class="no-underline hover:scale-105 hover:underline">
                 Outros...</a>
         </nav>

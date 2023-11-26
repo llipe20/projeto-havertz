@@ -1,7 +1,80 @@
 {
     "produtos" : [
         {
-            "name" : "Shingeki no Kyojin Vol. 4"
+            "id" : 1,
+            "nome" : "Mangá Attack on titan vol. 1 ao 5",
+            "categoria" : "Attack on titan",
+            "valor_antigo" : 20,
+            "valor_atual" : 15,
+            "vendas" : "2,5 mil",
+            "credito" : "x3 de 5,00",
+            "frete" : "GRÁTIS",
+            "estrelas" : 4,
+            "poster" : "https://i.ibb.co/HPxj5nZ/List-of-Attack-on-Titan-chapters.jpg",
+            "volumes" : [
+                {
+                    "id" : 1,
+                    "image" : "https://i.ibb.co/HPxj5nZ/List-of-Attack-on-Titan-chapters.jpg"
+                },
+                {
+                    "id" : 2,
+                    "image" : "https://i.ibb.co/1Kj8H6C/Shingeki-no-Kyojin-02.jpg"
+                },
+                {
+                    "id" : 3,
+                    "image" : "https://i.ibb.co/qC59m3z/Attack-on-Titan-Volume-3-Cover.jpg"
+                },
+                {
+                    "id" : 4,
+                    "image" : "https://i.ibb.co/zhLS9Nf/Attack-on-Titan-Volume-4-Cover.jpg"
+                },
+                {
+                    "id" : 5,
+                    "image" : "https://i.ibb.co/x7gVH16/download.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 2,
+            "nome" : "Mangá Demon Slayer vol. 8 ao 14",
+            "categoria" : "Demon slayer",
+            "valor_antigo" : 20,
+            "valor_atual" : 16,
+            "vendas" : "3,5 mil",
+            "credito" : "x2 de 8,00",
+            "frete" : "GRÁTIS",
+            "estrelas" : 5,
+            "poster" : "https://i.ibb.co/4KHC3rF/vol-8.jpg",
+            "volumes" : [
+                {
+                    "id" : 8,
+                    "image" : "https://i.ibb.co/4KHC3rF/vol-8.jpg"
+                },
+                {
+                    "id" : 9,
+                    "image" : "https://i.ibb.co/JxbjkWj/vol-9.jpg"
+                },
+                {
+                    "id" : 10,
+                    "image" : "https://i.ibb.co/DCsYWYp/vol-10.jpg"
+                },
+                {
+                    "id" : 11,
+                    "image" : "https://i.ibb.co/LJGPTrj/vol-11.jpg"
+                },
+                {
+                    "id" : 12,
+                    "image" : "https://i.ibb.co/G2tTtgw/vol-12.jpg"
+                },
+                {
+                    "id" : 13,
+                    "image" : "https://i.ibb.co/347ZD1X/demon-slayer-vol-13.jpg"
+                },
+                {
+                    "id" : 14,
+                    "image" : "https://i.ibb.co/XpckWNx/vol-14.jpg"
+                }
+            ]
         }
     ]
 }

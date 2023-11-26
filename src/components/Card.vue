@@ -3,22 +3,26 @@
     <div 
         v-if="value === 'product'"
         class="flex flex-col justify-between itmes-center w-auto h-72 lg:h-80 bg-white shadow box-border hover:border border-palete-400">
-        <div class="w-full h-2/3 bg-red-200">
-            <!-- imagem do produto aqui! -->
+        <div class="w-full h-2/3 bg-red-200 overflow-hidden">
+            <img 
+                :src="product.poster" 
+                :alt="product.nome"
+                class="w-full"
+            >
         </div>
-        <div class="flex flex-col justify-around items-start p-2 w-full h-1/3">
+        <div class="flex flex-col justify-around items-start p-2 w-full h-auto p-2">
             <h2 class="text-sm">
-                Nome do produto felipe dilsnds 
+                {{ product.nome }} 
             </h2>
             <div class="flex items-end justify-center gap-1">
                 <span class="text-sm pb-1">
                     R$
                 </span> 
                 <h2 class="text-base lg:text-xl">
-                    50,00
+                    {{ product.valor_atual.toFixed(2) }}
                 </h2>
                 <s class="text-xs pl-1 pb-1">
-                    R$ 60,00
+                    R$ {{ product.valor_antigo.toFixed(2) }}
                 </s>
             </div>
             <div class="flex justify-between items-center gap-2 w-full pt-1">
@@ -42,7 +46,7 @@
                 </div>
                 <div class="flex items-center justify-center gap-1">
                      <span class="text-xs">
-                        5,2 mil
+                        {{ product.vendas }}
                     </span>
                     <span class="text-xs hidden lg:flex">
                         vendidos
@@ -57,8 +61,16 @@
         v-if="value === 'category'" 
         class="flex flex-col justify-center items-center gap-2 h-36 bg-white text-black border border-gray-200 hover:border-palete-400 p-2 box-border"
     >
-        <div class="w-10 h-10 lg:h-16 lg:w-16 rounded-full border border-black bg-red-200"></div>
-        <h2 class="text-base text-center">Moda Feminina</h2>
+        <div class="w-10 h-10 lg:h-16 lg:w-16 rounded-full border border-black bg-red-200 overflow-hidden">
+            <img 
+                :src="product.poster" 
+                :alt="product.nome" 
+                class="w-10 lg:w-16 h-10 lg:h-16"
+            >
+        </div>
+        <h2 class="text-base text-center">
+            {{ product.categoria }}
+        </h2>
     </div>
 
     <!-- CARD PARA MONTAR O CARRINHO -->
@@ -75,6 +87,9 @@
             <div class="flex flex-col justify-start items-start">
                 <h2 class="font-bold text-sm lg:text-lg pb-1">
                     Nome do produto felip0e da slva verde 
+                    <span class="text-sm lg:text-lg font-normal">
+                        vol. 2
+                    </span>
                 </h2>
                 <h3 class="lg:text-lg">
                 <s class="text-xs lg:text-sm">R$ 60,00</s> R$ 50,00
@@ -117,7 +132,7 @@
         <div class="flex flex-col justify-between items-start h-auto lg:h-80 w-full lg:w-4/6">
             <!-- informações de produto -->
             <div class="flex flex-col justify-start items-start w-full gap-1">
-                <h2 class="font-bold lg:text-2xl">
+                <h2 class="font-bold text-lg lg:text-2xl">
                     Nome do produto felip0e da slva verde 
                 </h2>
                 <div class="flex justify-start items-center gap-2 w-2/3">
@@ -140,44 +155,51 @@
                         </svg>
                     </div>
                     <div class="flex items-center justify-center gap-1">
-                        <span class="text-xs lg:text-base">
+                        <span class="text-sm lg:text-base">
                             5,2 mil
                         </span>
-                        <span class="text-xs hidden lg:flex lg:text-base">
+                        <span class="text-sm lg:text-base">
                             vendidos
                         </span>
                     </div>
                 </div>
-                <h3 class="lg:text-2xl pt-2">
-                    <s class="text-xs lg:text-xl mr-1">
+                <h3 class="text-lg lg:text-2xl pt-2">
+                    <s class="text-base lg:text-xl mr-1">
                         R$ 60,00
                     </s> 
                     R$ 50,00
                 </h3>
-                <h3 class="text-xs lg:text-base">
+                <h3 class="text-sm lg:text-base">
                     em até x10 de 5,00 sem juros
                 </h3>
-                <h3 class="text-xs lg:text-base">
+                <h3 class="text-sm lg:text-base">
                     frete: 
                     <span class="text-green-800">
                         GRATIS
                     </span>
                 </h3>
             </div>
+            <!-- variações --> 
+            <div class="flex flex-wrap justify-start items-center mt-3 lg:mt-0 gap-3 w-full">
+                <ButtonView 
+                    :tag="'vol. 1'"
+                    class="h-auto w-auto p-1 pl-2 pr-2 bg-gray-200 hover:border border-palete-400 shadow"
+                />
+            </div>
             <!-- Botões -->
             <div class="flex flex-col items-start gap-3 justify-center">
                 <!-- botão de quant. aqui -->
-                <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-8 justify-center items-center text-white mt-4 md:mt-0">
+                <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-9 justify-center items-center text-white mt-4 md:mt-0">
                     <ButtonView 
                         :tag="menos"
-                        class="flex justify-center items-center bg-palete-400"
+                        class="flex justify-center items-center h-full bg-palete-400"
                     />
                     <span class="text-black text-center">
                         2
                     </span>
                     <ButtonView 
                         :tag="mais"
-                        class="flex justify-center items-center bg-palete-400"
+                        class="flex justify-center items-center h-full bg-palete-400"
                     />
                 </div>
                 <div class="flex justify-center items-center gap-3">
@@ -201,7 +223,8 @@ export default {
     name : 'CardView',
 
     props : {
-        value : String
+        value : String,
+        product : Object
     },
 
     components : {

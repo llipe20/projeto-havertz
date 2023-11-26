@@ -5,29 +5,15 @@
       <!-- CAIXA DE CATEGORIAS -->
       <div class="flex flex-wrap justify-center items-center w-full lg:w-5/6 gap-3">
           <div class="flex justify-start items-center w-full p-4 text-black text-base border-b border-gray-200 bg-white shadow">
-              <span>CATEGORIAS</span>
+              <span>MANGÁS</span>
           </div>
           <div class="grid grid-cols-4 grid-rows-5 md:grid-cols-5 md:grid-rows-4 xl:grid-cols-10 lg:grid-rows-2 justify-center items-center w-full shadow">
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
-              <CardView :value="'category'"/>
+              <CardView 
+                  v-for="product in products"
+                  :key="product.id"
+                  :value="'category'"
+                  :product="product"
+              />
           </div>
       </div>
 
@@ -37,28 +23,15 @@
               <span>OFERTAS DA SEMANA</span>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-2 w-full box-border mb-2">
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
+              <router-link 
+                  to="/product"
+                  v-for="product in products"
+                  :key="product.id"
+              >
+                  <CardView 
+                      :value="'product'"
+                      :product="product"
+                  />
               </router-link>
           </div>   
       </div>
@@ -83,8 +56,18 @@ export default {
 
   data() {
     return {
-      mais : '<span>Ver mais</span>'
+        mais : '<span>Ver mais</span>',
     }
+  },
+
+  computed: {
+      products() {
+        return this.$store.state.product
+      }
+  },
+
+  async created() {
+      await this.$store.dispatch("getProduct")
   }
 }
 </script>
