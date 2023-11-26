@@ -57,7 +57,7 @@
             </div>  
         </div>
 
-        <div class="flex flex-col justify-center items-center w-full text-white p-4 pt-5 pb-10 bg-palete-500 gap-1">
+        <div class="flex flex-col justify-center items-center w-full text-white p-4 pt-10 pb-10 bg-palete-500 gap-1">
             <!-- BOX DE LOGO -->
             <div class="flex justify-center items-center gap-1 lg:gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:w-10 lg:h-10 w-6 h-6">
