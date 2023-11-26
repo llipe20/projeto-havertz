@@ -35,36 +35,40 @@
             </div>
         </div>
         <!-- CAIXA DE PRODUTOS -->
-      <div class="flex flex-col justify-center items-center w-full lg:w-5/6 box-border gap-3 mt-10">
-          <div class="flex justify-start items-center w-full p-4 text-black text-base border-b border-gray-200 box-border bg-white">
-              <span>VOCÊ TAMBÉM PODE GOSTAR</span>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-2 w-full box-border mb-2">
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
+        <div class="flex flex-col justify-center items-center w-full lg:w-5/6 box-border gap-3 mt-10">
+            <div class="flex justify-start items-center w-full p-4 text-black text-base border-b border-gray-200 box-border bg-white">
+                <span>VOCÊ TAMBÉM PODE GOSTAR</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-2 w-full box-border mb-2">
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
 
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
 
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
 
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
 
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
 
-              <router-link to="/product">
-                  <CardView :value="'product'"/>
-              </router-link>
-          </div>   
-      </div>
+                <router-link to="/product">
+                    <CardView :value="'product'"/>
+                </router-link>
+            </div>   
+        </div>
+        <ButtonView 
+            :tag="mais"
+            class="flex justify-center items-center w-24 h-10 border-0 outline-0 text-black bg-white mb-2 hover:border border-palete-400"
+        />
     </div>
 </template>
 
@@ -80,7 +84,8 @@ export default {
 
     data() {
         return {
-            comprar : '<span>Finalizar</span>'
+            comprar : '<span>Finalizar</span>',
+            mais : '<span>Ver mais</span>'
         }
     }
 }
