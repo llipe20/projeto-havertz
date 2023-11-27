@@ -129,7 +129,7 @@
         <div class="w-full h-64 lg:w-96 lg:h-96 border bg-red-200">
             <!-- imagens aqui -->
         </div>
-        <div class="flex flex-col justify-between items-start h-auto lg:h-80 w-full lg:w-4/6">
+        <div class="flex flex-col justify-between items-start h-auto lg:h-85 w-full lg:w-4/6">
             <!-- informações de produto -->
             <div class="flex flex-col justify-start items-start w-full gap-1">
                 <h2 class="font-bold text-lg lg:text-2xl">
@@ -187,7 +187,7 @@
                 />
             </div>
             <!-- Botões -->
-            <div class="flex flex-col items-start gap-3 justify-center">
+            <div class="flex flex-col items-start gap-4 justify-center">
                 <!-- botão de quant. aqui -->
                 <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-9 justify-center items-center text-white mt-4 md:mt-0">
                     <ButtonView 

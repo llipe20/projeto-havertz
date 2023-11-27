@@ -359,7 +359,7 @@
             ]
         },
         {
-            "id" : 13,
+            "id" : 14,
             "nome" : "Mangá Tokyo Revengers vol. 4 ao 6",
             "categoria" : "Tokyo Revengers",
             "valor_antigo" : 13,
@@ -383,9 +383,156 @@
                     "image" : "https://i.ibb.co/9pW46Jm/tokio-Volumen-6.jpg"
                 }
             ]
+        },
+        {
+            "id" : 15,
+            "nome" : "Mangá Dragon Ball Clássico vol. 167 ao 168",
+            "categoria" : "Dragon Ball Clássico",
+            "valor_antigo" : 25,
+            "valor_atual" : 21.90,
+            "vendas" : "38,4 mil",
+            "credito" : "x1 de 21,90",
+            "frete" : "GRÁTIS",
+            "estrelas" : 5,
+            "poster" : "https://i.ibb.co/CMrNRsC/DB-Chap-167.jpg",
+            "volumes" : [
+                {
+                    "id" : 67,
+                    "image" : "https://i.ibb.co/CMrNRsC/DB-Chap-167.jpg"
+                },
+                {
+                    "id" : 68,
+                    "image" : "https://i.ibb.co/W6HNnnc/DB-Chap-168.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 16,
+            "nome" : "Mangá Blue Look vol. 1 ao 4",
+            "categoria" : "Blue Look",
+            "valor_antigo" : 15,
+            "valor_atual" : 12.90,
+            "vendas" : "2,5 mil",
+            "credito" : "x1 de 12,90",
+            "frete" : "GRÁTIS",
+            "estrelas" : 4,
+            "poster" : "https://i.ibb.co/xqPRHH7/bl-1.jpg",
+            "volumes" : [
+                {
+                    "id" : 1,
+                    "image" : "https://i.ibb.co/xqPRHH7/bl-1.jpg"
+                },
+                {
+                    "id" : 2,
+                    "image" : "https://i.ibb.co/0KjKGCF/bl-2.jpg"
+                },
+                {
+                    "id" : 3,
+                    "image" : "https://i.ibb.co/RDd4nKM/bl-3.jpg"
+                },
+                {
+                    "id" : 4,
+                    "image" : "https://i.ibb.co/t4yBX0k/bl-4.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 17,
+            "nome" : "Mangá Solo Leveling vol. 1",
+            "categoria" : "Solo Leveling",
+            "valor_antigo" : 16,
+            "valor_atual" : 13.90,
+            "vendas" : "11,9 mil",
+            "credito" : "x1 de 13,90",
+            "frete" : "GRÁTIS",
+            "estrelas" : 3,
+            "poster" : "https://i.ibb.co/Ltm8vC0/Solo-Leveling-Vol-1-comic.jpg",
+            "volumes" : [
+                {
+                    "id" : 1,
+                    "image" : "https://i.ibb.co/Ltm8vC0/Solo-Leveling-Vol-1-comic.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 18,
+            "nome" : "Mangá Bleach vol. 1 ao 2",
+            "categoria" : "Bleach",
+            "valor_antigo" : 23,
+            "valor_atual" : 16.00,
+            "vendas" : "22,5 mil",
+            "credito" : "x2 de 8,00",
+            "frete" : "GRÁTIS",
+            "estrelas" : 5,
+            "poster" : "https://i.ibb.co/mR6Z5fh/bleach-1.jpg",
+            "volumes" : [
+                {
+                    "id" : 1,
+                    "image" : "https://i.ibb.co/mR6Z5fh/bleach-1.jpg"
+                },
+                {
+                    "id" : 2,
+                    "image" : "https://i.ibb.co/BLwgtsR/Bleach-vol-2.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 19,
+            "nome" : "Mangá The Promisse Neverland vol. 2 ao 5",
+            "categoria" : "The Promisse Neverland",
+            "valor_antigo" : 19,
+            "valor_atual" : 18.90,
+            "vendas" : "4,4 mil",
+            "credito" : "x1 de 18,90",
+            "frete" : "GRÁTIS",
+            "estrelas" : 5,
+            "poster" : "https://i.ibb.co/fHsDD9h/porm-2.jpg",
+            "volumes" : [
+                {
+                    "id" : 2,
+                    "image" : "https://i.ibb.co/fHsDD9h/porm-2.jpg"
+                },
+                {
+                    "id" : 3,
+                    "image" : "https://i.ibb.co/JqzYV8z/The-Promised-Neverland-Vol-3-ebook-by-Kaiu-Shirai-Rakuten-Kobo.jpg"
+                },
+                {
+                    "id" : 4,
+                    "image" : "https://i.ibb.co/kGFRmwc/prom-4.jpg"
+                },
+                {
+                    "id" : 5,
+                    "image" : "https://i.ibb.co/c1py8tY/prop-5.jpg"
+                }
+            ]
+        },
+        {
+            "id" : 20,
+            "nome" : "Mangá Tokyo Ghoul  vol. 1 ao 2",
+            "categoria" : "Tokyo Ghoul",
+            "valor_antigo" : 15,
+            "valor_atual" : 12.00,
+            "vendas" : "13,7 mil",
+            "credito" : "x2 de 6,00",
+            "frete" : "GRÁTIS",
+            "estrelas" : 4,
+            "poster" : "https://i.ibb.co/G7xSBNf/Tokyo-Ghoul-Vol-1.jpg",
+            "volumes" : [
+                {
+                    "id" : 1,
+                    "image" : "https://i.ibb.co/G7xSBNf/Tokyo-Ghoul-Vol-1.jpg"
+                },
+                {
+                    "id" : 2,
+                    "image" : "https://i.ibb.co/x6Gs80X/tk-2.jpg"
+                }
+            ]
         }
     ]
 }
+
+
+
 
 
 
