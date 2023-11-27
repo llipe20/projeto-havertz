@@ -22,7 +22,7 @@
           <div class="flex justify-start items-center w-full p-4 text-black text-base border-b border-gray-200 box-border bg-white shadow">
               <span>OFERTAS DA SEMANA</span>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-2 w-full box-border mb-2">
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-3 w-full box-border mb-2">
               <router-link 
                   to="/product"
                   v-for="product in products"

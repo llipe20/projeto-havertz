@@ -10,7 +10,7 @@
                 class="w-full"
             >
         </div>
-        <div class="flex flex-col justify-around items-start p-2 w-full h-auto p-2">
+        <div class="flex flex-col justify-between items-start gap-1 p-2 w-full h-28 p-2">
             <h2 class="text-sm">
                 {{ product.nome }} 
             </h2>
