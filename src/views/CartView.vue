@@ -5,9 +5,17 @@
         </div>
         <!-- PRODUTOS -->
         <div class="grid grid-cols-1 justify-center items-center w-full lg:w-5/6 shadow">
-            <CardView :value="'cart'" />
-            <CardView :value="'cart'" />
-            <CardView :value="'cart'" />
+            <span v-if="products.lenght == 0">
+                Vazio
+            </span>
+            <CardView 
+                v-else
+                v-for="product in products"
+                :key="product.id"
+                :product="product"
+                :value="'cart'" 
+            />
+            
         </div>
         <!-- CAIXA DE RESUMO DE FATURA -->
         <div class="flex flex-col justify-start items-center gap-1 w-full lg:w-5/6 p-4 border-b border-gray-200 bg-white shadow">
@@ -85,8 +93,19 @@ export default {
     data() {
         return {
             comprar : '<span>Finalizar</span>',
-            mais : '<span>Ver mais</span>'
+            mais : '<span>Ver mais</span>',
+            products : ''
         }
+    },
+
+    methods : {
+        GetCart() {
+            this.products = this.$store.state.cart
+        }
+    },
+
+    created() {
+        this.GetCart()
     }
 }
 </script>

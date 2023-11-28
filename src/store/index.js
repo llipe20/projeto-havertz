@@ -2,14 +2,24 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-      product : []
+      product : Array,
+      idProduct : Number,
+      cart : Array
   },
   getters: {
   },
   mutations: {
     GetData : (state, data) => {
         state.product = data
-    }
+    },
+
+    UpdateId : (state, data) => {
+        state.idProduct = data
+    },
+
+    UpdateCart : (state, data) => {
+      state.cart.push(data)
+  }
   },
   actions: {
       getProduct : async ({ commit }) => {

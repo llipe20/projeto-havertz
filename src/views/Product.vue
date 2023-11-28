@@ -1,8 +1,11 @@
 <template>
   <div class="flex flex-col justify-center items-center gap-3 w-full bg-gray-200 text-black text-base p-4">
+
       <CardView 
           :value="'prod-indiv'"
+          :product="product[0]"
       />
+      
       <div class="flex justify-start items-center w-full lg:w-5/6 p-4 border-b border-gray-200 shadow bg-white">
             <span>AVALIAÇÕES - em produção</span>
       </div>
@@ -19,7 +22,25 @@ export default {
     name : 'ProductView',
 
     components : {
-      CardView
+        CardView
+    },
+
+    data() {
+      return {
+          product : ''
+      }
+    },
+
+    methods : {
+        GetProduct() {
+            var products = this.$store.state.product
+            var id = this.$store.state.idProduct
+            this.product = products.filter(prod => prod.id == id)
+        }
+    },
+
+    created() {
+        this.GetProduct()
     }
 }
 </script>

@@ -27,6 +27,7 @@
                   to="/product"
                   v-for="product in products"
                   :key="product.id"
+                   @click="Mahoraga(product.id)"
               >
                   <CardView 
                       :value="'product'"
@@ -63,6 +64,13 @@ export default {
   computed: {
       products() {
         return this.$store.state.product
+      }
+  },
+
+  methods : {
+    // manda o id do produto clicado para o states
+      Mahoraga(id) {
+          this.$store.commit("UpdateId", id)
       }
   },
 
