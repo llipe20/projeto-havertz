@@ -4,7 +4,7 @@ export default createStore({
   state: {
       product : Array,
       idProduct : Number,
-      cart : Array
+      cart : []
   },
   getters: {
   },
@@ -17,9 +17,16 @@ export default createStore({
         state.idProduct = data
     },
 
-    UpdateCart : (state, data) => {
+    // adicionar produto no carrinho
+    AddCart : (state, data) => {
       state.cart.push(data)
-  }
+    },
+
+    // remover produto do carrinho
+    RemoveCart : (state, data) => {
+      const newCart = state.cart.filter(product => product.id == data.id)
+      state.cart = newCart
+    }
   },
   actions: {
       getProduct : async ({ commit }) => {

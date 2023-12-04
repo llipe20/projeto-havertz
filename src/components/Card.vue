@@ -194,7 +194,9 @@
             <div class="flex flex-wrap justify-start items-center mt-3 lg:mt-0 gap-3 w-full">
                 <ButtonView 
                     v-for="vol in product.volumes"
+                    @click="SelectVol(vol, product)"
                     :key="vol.id"
+                    ref="buttonVolums"
                     :tag="`vol. ${vol.id}`"
                     class="h-auto w-auto p-1 pl-2 pr-2 bg-gray-200 hover:border border-palete-400 shadow"
                 />
@@ -204,20 +206,22 @@
                 <!-- botão de quant. aqui -->
                 <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-9 justify-center items-center text-white mt-4 md:mt-0">
                     <ButtonView 
+                        @click="UpdateQuant('-')"
                         :tag="menos"
                         class="flex justify-center items-center h-full bg-palete-400"
                     />
                     <span class="text-black text-center">
-                        2
+                        {{ quantidade }}
                     </span>
-                    <ButtonView 
+                    <ButtonView
+                        @click="UpdateQuant('+')" 
                         :tag="mais"
                         class="flex justify-center items-center h-full bg-palete-400"
                     />
                 </div>
                 <div class="flex justify-center items-center gap-3">
                     <ButtonView 
-                        @click="Gojo(product)"
+                        @click="Add()"
                         :tag="add"
                         class="flex justify-center items-center w-28 lg:w-44 h-10 lg:h-12 border-palete-400 text-center text-sm border-2 border-0 outline-0 shadow text-palete-400 hover:scale-105"
                      />
@@ -238,7 +242,7 @@ export default {
 
     props : {
         value : String,
-        product : Object
+        product : Object,
     },
 
     components : {
@@ -247,6 +251,8 @@ export default {
 
     data() {
         return {
+            productSelect : {},
+            quantidade : 0,
             mais : '<span>+</span>',
             menos : '<span>-</span>',
             comprar : '<span class="flex justify-center items-center gap-1" >Comprar <span class="hidden lg:flex">agora</span></span>',
@@ -256,8 +262,54 @@ export default {
     },
 
     methods : {
-        Gojo(element) {
-            this.$store.commit("UpdateCart", element)
+        // Adiciona produto no carrinho
+        Add() {
+           const element = this.productSelect && Object.entries(this.productSelect).length > 0 ? this.productSelect : null;
+
+            if(element == null) {
+                console.log('ESCOLHA UM VOLUME') // modal
+            } else {
+                this.$store.commit("AddCart", element)
+                console.log('ADD AO CARRINHO') // modal
+            }
+        },
+
+        // Manipular a quantidade de vezes de comprar um produto
+        UpdateQuant(operacion) {
+            if(operacion == '+') {
+                this.quantidade += 1 
+            } else if (operacion == '-') {
+                if(this.quantidade > 0) {
+                    this.quantidade -= 1 
+                }
+            } else {
+                this.quantidade = 0
+            }
+        },
+
+        // Selecionar o volume desejado
+        SelectVol(volSelect, product) {
+            product.vol_select = volSelect
+            this.productSelect = product
+
+            // pegando todos os volumes e removendo a edição de seleção
+             if (Array.isArray(product.volumes)) {
+                product.volumes.forEach(vol => {
+                    
+                    let cart = this.$refs.buttonVolums[vol.id]
+                    console.log(cart)
+                    cart.classList.remove('bg-palete-400', 'border')
+                    cart.classList.add('bg-gray-200')
+                });
+
+                // add edição de seleção no vol escolhido
+                let cart = this.$refs[volSelect.id]
+                cart.classList.remove('bg-gray-200')
+                cart.classList.add('border', 'bg-palete-400')
+             } else {
+                console.log('ARRAY INDEFINIDO')
+                console.log(product.volumes)
+             }   
         }
     }
 }
