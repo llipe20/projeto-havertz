@@ -191,12 +191,12 @@
                 </h3>
             </div>
             <!-- variações --> 
-            <div class="flex flex-wrap justify-start items-center mt-3 lg:mt-0 gap-3 w-full">
+            <div class="flex flex-wrap justify-start items-center mt-3 md:mb-3 lg:mb-0 lg:mt-0 gap-3 w-full">
                 <ButtonView 
                     v-for="vol in product.volumes"
                     :key="vol.id"
                     :tag="`vol. ${vol.id}`"
-                    class="h-auto w-auto p-1 pl-2 pr-2 hover:border border-palete-400 shadow"
+                    class="h-auto w-auto p-1 pl-2 pr-2 border border-gray-200 hover:border hover:border-palete-400 shadow"
                     :class="{ 
                         'bg-palete-400': volSelect == vol.id, 
                         'text-white': volSelect == vol.id, 
@@ -295,6 +295,7 @@ export default {
         // Selecionar o volume desejado
         SelectVol(vol, product) {
             product.vol_select = vol
+            product.quantidade = this.quantidade
             this.productSelect = product
             // add classes para volume selecionado
             this.volSelect = vol.id
