@@ -14,7 +14,14 @@ export default {
 
     components : {
       NavBar, FooterView
+    },
+
+    watch: {
+    '$route'(to, from) {
+      // Rola a página para o topo quando a rota é alterada
+      window.scrollTo(0, 0);
     }
+  }
 }
 </script>
 

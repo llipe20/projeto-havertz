@@ -79,18 +79,18 @@
         class="flex justify-between items-center w-full min-h-44 lg:h-44 bg-white text-black border border-gray-200 hover:border-palete-400 p-4"
     >
         <!-- BLOCO 1 - imagem -->
-        <div class="w-32 md:w-40 md:h-full h-32 border bg-red-200">
+        <div class="flex justify-center items-center w-32 md:w-40 md:h-full h-32 border border-2 shadow">
             <img
-                :src="product.poster" 
+                :src="product.vol_select.image" 
                 :alt="product.nome"
                 class="w-1/2"
             >
         </div>
         <!-- BLOCO 2 - informações do produto -->
-        <div class="flex flex-col justify-between items-start w-3/6 md:w-4/6 h-full text-black text-base p-2 pl-4 lg:pl-6">
+        <div class="flex flex-col justify-between items-start w-3/6 md:w-4/6 h-full text-black text-base p-2 pl-4 lg:pl-4">
             <div class="flex flex-col justify-start items-start">
                 <h2 class="font-bold text-sm lg:text-lg pb-1">
-                    {{ product.nome }}
+                    {{ `${product.nome} - Vol. ${product.vol_select.id}` }}
                     <span class="text-sm lg:text-lg font-normal">
                         {{ product.vol }}
                     </span>
@@ -104,15 +104,17 @@
                 <h3 class="text-xs">em até {{ product.credito }} sem juros</h3>
             </div>
             <!-- botão de quant. aqui -->
-            <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-8 justify-center items-center text-white mt-2 md:mt-0">
+            <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-10 justify-center items-center text-white mt-2 md:mt-0">
                 <ButtonView 
+                    @click="UpdateQuant('-')"
                     :tag="menos"
                     class="flex justify-center items-center bg-palete-400"
                 />
                 <span class="text-black text-center">
-                    2
+                    {{ quantidade }}
                 </span>
                 <ButtonView 
+                    @click="UpdateQuant('+')"
                     :tag="mais"
                     class="flex justify-center items-center bg-palete-400"
                 />
@@ -123,6 +125,7 @@
             <input type="checkbox" class="w-4 h-4 lg:h-5 lg:w-5 cursor-pointer">
             <!-- botão de excluir -->
             <ButtonView 
+                @click="RemoverCart(product.id)"
                 :tag="excluir"
             />
         </div>
@@ -135,7 +138,7 @@
     >
         <div class="flex justify-center items-center w-full h-64 lg:w-80 lg:h-96 border border-2 overflow-hidden shadow">
             <img 
-                :src="product.poster" 
+                :src="Object.values(volSelect).length !== 0 ? volSelect.image : product.poster" 
                 :alt="product.nome"
                 class="w-1/2 lg:w-56"
             >
@@ -144,7 +147,8 @@
             <!-- informações de produto -->
             <div class="flex flex-col justify-start items-start w-full gap-1">
                 <h2 class="font-bold text-lg lg:text-2xl">
-                    {{product.nome}}
+                    {{product.nome}} 
+                    {{ Object.values(volSelect).length !== 0 ? `Vol. ${volSelect.id}` : ''}}
                 </h2>
                 <div class="flex justify-start items-center gap-2 w-2/3">
                     <!-- 5 estrelas -->
@@ -198,10 +202,10 @@
                     :tag="`vol. ${vol.id}`"
                     class="h-auto w-auto p-1 pl-2 pr-2 border border-gray-200 hover:border hover:border-palete-400 shadow"
                     :class="{ 
-                        'bg-palete-400': volSelect == vol.id, 
-                        'text-white': volSelect == vol.id, 
-                        'bg-gray-200': volSelect != vol.id,
-                        'text-black': volSelect != vol.id }"
+                        'bg-palete-400': volSelect.id == vol.id, 
+                        'text-white': volSelect.id == vol.id, 
+                        'bg-gray-200': volSelect.id != vol.id,
+                        'text-black': volSelect.id != vol.id }"
                     @click="SelectVol(vol, product)"
                 />
             </div>
@@ -257,7 +261,7 @@ export default {
         return {
             productSelect : {},
             quantidade : 0,
-            volSelect : null,
+            volSelect : {},
             mais : '<span>+</span>',
             menos : '<span>-</span>',
             comprar : '<span class="flex justify-center items-center gap-1" >Comprar <span class="hidden lg:flex">agora</span></span>',
@@ -279,6 +283,11 @@ export default {
             }
         },
 
+        // remover produto do carrinho
+        RemoverCart(product) {
+            this.$store.commit("RemoveCart", product)
+        },
+
         // Manipular a quantidade de vezes de comprar um produto
         UpdateQuant(operacion) {
             if(operacion == '+') {
@@ -298,7 +307,7 @@ export default {
             product.quantidade = this.quantidade
             this.productSelect = product
             // add classes para volume selecionado
-            this.volSelect = vol.id
+            this.volSelect = vol
         }
     }
 }

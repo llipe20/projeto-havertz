@@ -71,11 +71,12 @@
 <script>
 import CardView from '../components/Card.vue'
 import ButtonView from '../components/ButtonView.vue'
+import ModalTV from '../components/Modal.vue'
 export default {
     name : 'CartView',
 
     components : {
-        CardView, ButtonView
+        CardView, ButtonView, ModalTV
     },
 
     data() {
@@ -86,15 +87,13 @@ export default {
         }
     },
 
-    methods : {
-        GetCart() {
-            this.products = this.$store.state.cart
+    watch: {
+        '$store.state.cart': {
+            handler(newCart) {
+            this.products =  newCart ? [...newCart].reverse() : []
+            },
+            immediate: true // Garante que o handler seja chamado imediatamente ao montar o componente
         }
-    },
-
-    mounted() {
-        this.GetCart()
-        console.log(this.products)
     }
 }
 </script>

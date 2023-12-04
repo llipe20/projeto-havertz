@@ -18,11 +18,12 @@
 
 <script>
 import CardView from '../components/Card.vue'
+import ModalTV from '../components/Modal.vue'
 export default {
     name : 'ProductView',
 
     components : {
-        CardView
+        CardView, ModalTV
     },
 
     data() {
