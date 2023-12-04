@@ -5,9 +5,18 @@
         </div>
         <!-- PRODUTOS -->
         <div class="grid grid-cols-1 justify-center items-center w-full lg:w-5/6 shadow">
-            <span v-if="products.lenght == 0">
-                Vazio
-            </span>
+            <!-- Carrinho vazio -->
+            <div 
+                v-if="products.length == 0"
+                class="flex items-center justify-center gap-3 w-full h-96 opacity-40 text-2xl"    
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <span>
+                    Vazio
+                </span>
+            </div>
             <CardView 
                 v-else
                 v-for="product in products"
@@ -15,7 +24,6 @@
                 :product="product"
                 :value="'cart'" 
             />
-            
         </div>
         <!-- CAIXA DE RESUMO DE FATURA -->
         <div class="flex flex-col justify-start items-center gap-1 w-full lg:w-5/6 p-4 border-b border-gray-200 bg-white shadow">
@@ -49,27 +57,7 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center lg:justify-start items-center gap-2 w-full box-border mb-2">
                 <router-link to="/product">
-                    <CardView :value="'product'"/>
-                </router-link>
-
-                <router-link to="/product">
-                    <CardView :value="'product'"/>
-                </router-link>
-
-                <router-link to="/product">
-                    <CardView :value="'product'"/>
-                </router-link>
-
-                <router-link to="/product">
-                    <CardView :value="'product'"/>
-                </router-link>
-
-                <router-link to="/product">
-                    <CardView :value="'product'"/>
-                </router-link>
-
-                <router-link to="/product">
-                    <CardView :value="'product'"/>
+                    <!-- card aqui -->
                 </router-link>
             </div>   
         </div>
@@ -94,7 +82,7 @@ export default {
         return {
             comprar : '<span>Finalizar</span>',
             mais : '<span>Ver mais</span>',
-            products : ''
+            products : this.$store.state.cart || []
         }
     },
 
@@ -104,8 +92,9 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         this.GetCart()
+        console.log(this.products)
     }
 }
 </script>

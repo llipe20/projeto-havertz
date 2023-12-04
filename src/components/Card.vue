@@ -80,7 +80,7 @@
     >
         <!-- BLOCO 1 - imagem -->
         <div class="w-32 md:w-40 md:h-full h-32 border bg-red-200">
-            <img 
+            <img
                 :src="product.poster" 
                 :alt="product.nome"
                 class="w-1/2"

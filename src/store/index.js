@@ -20,6 +20,7 @@ export default createStore({
     // adicionar produto no carrinho
     AddCart : (state, data) => {
       state.cart.push(data)
+      console.log(state.cart)
     },
 
     // remover produto do carrinho
