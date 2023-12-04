@@ -194,11 +194,15 @@
             <div class="flex flex-wrap justify-start items-center mt-3 lg:mt-0 gap-3 w-full">
                 <ButtonView 
                     v-for="vol in product.volumes"
-                    @click="SelectVol(vol, product)"
                     :key="vol.id"
-                    ref="buttonVolums"
                     :tag="`vol. ${vol.id}`"
-                    class="h-auto w-auto p-1 pl-2 pr-2 bg-gray-200 hover:border border-palete-400 shadow"
+                    class="h-auto w-auto p-1 pl-2 pr-2 hover:border border-palete-400 shadow"
+                    :class="{ 
+                        'bg-palete-400': volSelect == vol.id, 
+                        'text-white': volSelect == vol.id, 
+                        'bg-gray-200': volSelect != vol.id,
+                        'text-black': volSelect != vol.id }"
+                    @click="SelectVol(vol, product)"
                 />
             </div>
             <!-- Botões -->
@@ -253,6 +257,7 @@ export default {
         return {
             productSelect : {},
             quantidade : 0,
+            volSelect : null,
             mais : '<span>+</span>',
             menos : '<span>-</span>',
             comprar : '<span class="flex justify-center items-center gap-1" >Comprar <span class="hidden lg:flex">agora</span></span>',
@@ -288,28 +293,11 @@ export default {
         },
 
         // Selecionar o volume desejado
-        SelectVol(volSelect, product) {
-            product.vol_select = volSelect
+        SelectVol(vol, product) {
+            product.vol_select = vol
             this.productSelect = product
-
-            // pegando todos os volumes e removendo a edição de seleção
-             if (Array.isArray(product.volumes)) {
-                product.volumes.forEach(vol => {
-                    
-                    let cart = this.$refs.buttonVolums[vol.id]
-                    console.log(cart)
-                    cart.classList.remove('bg-palete-400', 'border')
-                    cart.classList.add('bg-gray-200')
-                });
-
-                // add edição de seleção no vol escolhido
-                let cart = this.$refs[volSelect.id]
-                cart.classList.remove('bg-gray-200')
-                cart.classList.add('border', 'bg-palete-400')
-             } else {
-                console.log('ARRAY INDEFINIDO')
-                console.log(product.volumes)
-             }   
+            // add classes para volume selecionado
+            this.volSelect = vol.id
         }
     }
 }
