@@ -71,12 +71,11 @@
 <script>
 import CardView from '../components/Card.vue'
 import ButtonView from '../components/ButtonView.vue'
-import ModalTV from '../components/Modal.vue'
 export default {
     name : 'CartView',
 
     components : {
-        CardView, ButtonView, ModalTV
+        CardView, ButtonView
     },
 
     data() {
