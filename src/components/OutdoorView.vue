@@ -1,7 +1,7 @@
 <template>
     <div 
         class="flex justify-center items-center w-full lg:w-5/6 h-40 md:h-80 bg-black relative"
-        style="background-image: url('/gaara.jpg'); background-size: cover; background-position: center center"
+        style="background-image: url('/jjk.jpg'); background-size: cover; background-position: center center"
     >
         <ButtonView 
             :tag="arrowLeft"
