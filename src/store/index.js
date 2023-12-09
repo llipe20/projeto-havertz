@@ -30,7 +30,7 @@ export default createStore({
   },
   actions: {
       getProduct : async ({ commit }) => {
-        const req = await fetch('https://json-serve-projeto-havertz-api.vercel.app/produtos')
+        const req = await fetch(`https://json-serve-projeto-havertz-api.vercel.app/produtos`)
         const res = await req.json()
 
         commit("GetData", res)
