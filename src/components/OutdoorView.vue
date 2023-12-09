@@ -1,11 +1,12 @@
 <template>
-    <div class="flex justify-center items-center w-full lg:w-5/6 h-80 bg-black relative">
+    <div 
+        class="flex justify-center items-center w-full lg:w-5/6 h-40 md:h-80 bg-black relative"
+        style="background-image: url('/gaara.jpg'); background-size: cover; background-position: center center"
+    >
         <ButtonView 
             :tag="arrowLeft"
             class="absolute flex justify-center items-center h-full w-10 text-white bg-red-500 left-0 top-0 opacity-30 hover:opacity-100 bgl"
         />
-
-        <span class="text-white">BANNER AQUI</span>
 
         <ButtonView 
             :tag="arrowRight"

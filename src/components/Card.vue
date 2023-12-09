@@ -105,21 +105,12 @@
                 </h3>
                 <h3 class="text-xs">em até {{ product.credito }} sem juros</h3>
             </div>
-            <!-- botão de quant. aqui -->
-            <div class="grid grid-cols-3 w-20 lg:w-32 h-6 lg:h-10 justify-center items-center text-white mt-2 md:mt-0">
-                <ButtonView 
-                    @click="UpdateQuant('-')"
-                    :tag="menos"
-                    class="flex justify-center items-center bg-palete-400"
-                />
-                <span class="text-black text-center">
-                    {{ quantidade }}
+            <!-- quant. aqui -->
+            <div class="flex gap-2 w-auto justify-center items-center text-white mt-2 md:mt-0">
+                <span class="text-black text-center">Quantidade</span>
+                <span class="text-black text-center font-bold">
+                    {{ product.quantidade }}
                 </span>
-                <ButtonView 
-                    @click="UpdateQuant('+')"
-                    :tag="mais"
-                    class="flex justify-center items-center bg-palete-400"
-                />
             </div>
         </div>
         <!-- BLOCO 3 - excluir -->
@@ -264,7 +255,7 @@ export default {
     data() {
         return {
             productSelect : {},
-            quantidade : 0,
+            quantidade : 1,
             volSelect : {},
             mais : '<span>+</span>',
             menos : '<span>-</span>',
@@ -282,6 +273,7 @@ export default {
             if(element == null) {
                 this.$emit('modal', false)
             } else {
+                element.quantidade = this.quantidade
                 this.$store.commit("AddCart", element)
                 this.$emit('modal', true)
             }
@@ -294,21 +286,23 @@ export default {
 
         // Manipular a quantidade de vezes de comprar um produto
         UpdateQuant(operacion) {
-            if(operacion == '+') {
-                this.quantidade += 1 
-            } else if (operacion == '-') {
-                if(this.quantidade > 0) {
-                    this.quantidade -= 1 
-                }
-            } else {
-                this.quantidade = 0
+            switch(operacion) {
+                case '+':
+                    this.quantidade += 1 
+                break
+                case '-':
+                    if(this.quantidade > 0) {
+                        this.quantidade -= 1 
+                    }
+                break
+                default:
+                    this.quantidade = 1 
             }
         },
 
         // Selecionar o volume desejado
         SelectVol(vol, product) {
             product.vol_select = vol
-            product.quantidade = this.quantidade
             this.productSelect = product
             // add classes para volume selecionado
             this.volSelect = vol

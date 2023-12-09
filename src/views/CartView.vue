@@ -1,5 +1,12 @@
 <template>
-    <div class="flex flex-col justify-center items-center gap-3 w-full bg-gray-200 text-black text-base p-4">
+    <div class="flex flex-col justify-center items-center gap-3 w-full bg-gray-200 text-black text-base p-4 relative">
+        <ModalVue 
+            v-if="isModal"
+            :bg="'bg-gray-600'"
+            :msg="'Sistema de pagamento em andamento!'"
+            class="absolute top-10 right-10"
+        />
+
         <div class="flex justify-start items-center w-full lg:w-5/6 p-4  border-b border-gray-200 bg-white shadow">
               <span>CARRINHO</span>
         </div>
@@ -29,22 +36,23 @@
         <div class="flex flex-col justify-start items-center gap-1 w-full lg:w-5/6 p-4 border-b border-gray-200 bg-white shadow">
             <div class="flex justify-between w-full">
                 <span>SUBTOTAL:</span>
-                <span>R$ 120,20</span>
+                <span>R$ {{ subtotal.toFixed(2) }}</span>
             </div>
             <div class="flex justify-between w-full">
                 <span>FRETE:</span>
-                <span>R$ 20,20</span>
+                <span>R$ {{ frete.toFixed(2) }} </span>
             </div>
             <div class="flex justify-between w-full">
                 <span>DESCONTO:</span>
-                <span>- R$ 0,20</span>
+                <span>- R$ {{ desconto.toFixed(2) }} </span>
             </div>
             <div class="flex justify-between w-full font-bold">
                 <span>TOTAL:</span>
-                <span>R$ 230,20</span>
+                <span>R$ {{ total.toFixed(2) }} </span>
             </div>
             <div class="flex justify-end w-full pt-2">
                 <ButtonView 
+                    @click="ShowModal"
                     :tag="comprar"
                     class="flex justify-center items-center w-24 h-10 bg-palete-400 text-white border-0 outline-0 shadow"
                 />
@@ -71,27 +79,51 @@
 <script>
 import CardView from '../components/Card.vue'
 import ButtonView from '../components/ButtonView.vue'
+import ModalVue from '../components/Modal.vue'
 export default {
     name : 'CartView',
 
     components : {
-        CardView, ButtonView
+        CardView, ButtonView, ModalVue
     },
 
     data() {
         return {
             comprar : '<span>Finalizar</span>',
             mais : '<span>Ver mais</span>',
-            products : this.$store.state.cart || []
+            products : this.$store.state.cart || [],
+            subtotal : 0,
+            frete: 0,
+            desconto : 0,
+            total : 0,
+            isModal : false
         }
     },
 
     watch: {
+        // Manipula os dados do carrinho
         '$store.state.cart': {
             handler(newCart) {
-            this.products =  newCart ? [...newCart].reverse() : []
+                this.subtotal = 0
+                this.products =  newCart ? [...newCart].reverse() : []
+                this.products.forEach(product => {
+                    this.subtotal = this.subtotal + (product.valor_atual * product.quantidade)
+                    console.log(product.quantidade)
+                })
+                this.total = this.subtotal + this.frete - this.desconto
             },
             immediate: true // Garante que o handler seja chamado imediatamente ao montar o componente
+        }
+    },
+
+    methods : {
+        // Aviso
+        ShowModal() {
+            this.isModal = true
+            const time = setInterval(() => {
+                this.isModal = false
+                clearInterval(time)
+            }, 3000)
         }
     }
 }
