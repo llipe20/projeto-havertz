@@ -48,6 +48,7 @@ export default {
     },
 
     async mounted() {
+        // gerenciar os banners
         await this.GetBanners()
         let i = 0
         setInterval(() => {
